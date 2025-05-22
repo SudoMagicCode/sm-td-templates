@@ -92,8 +92,9 @@ class ToxExporter:
         else:
             children_ops = target_op.findChildren()
             asset_path = self.save_external(target_op)
-            list(set([each_op.family for each_op in children_ops]))
-            list(set([each_op.OPType for each_op in children_ops]))
+            op_families = list(
+                set([each_op.family for each_op in children_ops]))
+            op_types = list(set([each_op.OPType for each_op in children_ops]))
 
         info: dict = {
             "path": path,
