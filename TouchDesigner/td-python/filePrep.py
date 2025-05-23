@@ -1,13 +1,11 @@
 import json
 
-from githubCollection import githubCollection
-from remoteTox import remoteTox
-from cloudPaletteType import cloudPaletteTypes
+import SudoMagic
 
 
 class ToxExporter:
     def __init__(self, ownerOp: callable) -> None:
-        self.inventory = githubCollection()
+        self.inventory = SudoMagic.entities.githubCollection()
         self.inventory.author = ipar.Settings.Author.eval()
         self.inventory.source = ipar.Settings.Repo.eval()
 
@@ -65,11 +63,11 @@ class ToxExporter:
 
     def _generate_op_info(self, target_op: callable, path: str) -> dict:
 
-        remote_op: remoteTox = remoteTox()
+        remote_op: SudoMagic.entities.remoteTox = SudoMagic.entities.remoteTox()
         # generate all the info needed for dict
         remote_op.asset_path
         remote_op.path = path
-        remote_op.type_tag = cloudPaletteTypes.folder if 'block' in target_op.tags else cloudPaletteTypes.tdTemplate
+        remote_op.type_tag = SudoMagic.entities.cloudPaletteTypes.folder if 'block' in target_op.tags else cloudPaletteTypes.tdTemplate
         remote_op.display_name = target_op.par.Blockname.eval(
         ) if 'block' in target_op.tags else target_op.par.Compname.eval()
         remote_op.tox_version = None if 'block' in target_op.tags else target_op.par.Toxversion.eval()
