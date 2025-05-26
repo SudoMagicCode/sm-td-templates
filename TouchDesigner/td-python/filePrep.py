@@ -33,7 +33,7 @@ class ToxExporter:
             'base_sm_comps': 'tdComp'
         }
 
-        op_sources: list[str] = ['base_tools']
+        op_sources: list[str] = ['base_templates']
         source_exclude_list: list[str] = ['base_template', 'base_icon']
         set_exclude_list: list[str] = ['base_icon',]
 
