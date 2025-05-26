@@ -25,7 +25,7 @@ class ToxExporter:
         # exit project
         project.quit(force=True)
 
-    def _build_inventory(self) -> None:
+    def _build_inventory(self, log_to_file: bool = False) -> None:
         print('-> Starting build process')
 
         name_to_type_map: dict[str, str] = {
@@ -33,7 +33,7 @@ class ToxExporter:
             'base_sm_comps': 'tdComp'
         }
 
-        op_sources: list[str] = ['base_templates']
+        op_sources: list[str] = ['base_tools']
         source_exclude_list: list[str] = ['base_template', 'base_icon']
         set_exclude_list: list[str] = ['base_icon',]
 
@@ -61,7 +61,10 @@ class ToxExporter:
                         if each_example.name in source_exclude_list:
                             pass
                         else:
+
                             print(f'---> {each_example.name}')
+                            self._write_action_to_log(
+                                f'processing | {each_example.name}')
                             path: str = f"{each_block.par.Blockname.eval()}/{each_example.par.Compname.eval()}"
                             info: dict = self._generate_op_info(
                                 each_example, path)
