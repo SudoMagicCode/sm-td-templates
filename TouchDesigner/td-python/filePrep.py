@@ -79,7 +79,7 @@ class ToxExporter:
         # generate all the info needed for dict
         remote_op.asset_path
         remote_op.path = path
-        remote_op.type_tag = SudoMagic.entities.cloudPaletteTypes.folder if 'block' in target_op.tags else cloudPaletteTypes.tdTemplate
+        remote_op.type_tag = SudoMagic.entities.cloudPaletteTypes.folder if 'block' in target_op.tags else SudoMagic.entities.cloudPaletteTypes.tdTemplate
         remote_op.display_name = target_op.par.Blockname.eval(
         ) if 'block' in target_op.tags else target_op.par.Compname.eval()
         remote_op.tox_version = '' if 'block' in target_op.tags else target_op.par.Toxversion.eval()
