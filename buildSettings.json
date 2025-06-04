@@ -4,5 +4,5 @@
     "PROJECT_FILE": "./TouchDesigner/project.toe",
     "COMP_NAME": "",
     "BUILD_CONTENTS": "toxFiles",
-    "USE_TDM": false
+    "USE_TDM": true
 }
