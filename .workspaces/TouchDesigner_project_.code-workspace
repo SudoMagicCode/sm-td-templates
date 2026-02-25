@@ -4,7 +4,7 @@
             "name": "Template Dev",
             "path": "../",
             "cwd": "${workspaceFolder}/project",
-            "python.interpreterPath": "C:/Program Files/Derivative/TouchDesigner.2023.11600/bin/python.exe"
+            "python.interpreterPath": "C:/Program Files/Derivative/TouchDesigner.2025.32280/bin/python.exe"
         },
     ],
     "settings": {
