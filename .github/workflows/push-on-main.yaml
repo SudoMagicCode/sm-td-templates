@@ -65,3 +65,16 @@ jobs:
           draft: false 
           prerelease: false
           files: ./artifacts/package/*
+          
+      - name: Clean up workspace
+        if: always() # Ensure this runs even if previous steps fail
+        shell: powershell
+        run: |
+          Write-Host "Starting workspace cleanup..."
+          $Path = Get-Location
+          
+          # Clear the directory
+          # We use -Recurse and -Force to handle hidden files and deep folders
+          Get-ChildItem -Path $Path -Recurse | Remove-Item -Force -Recurse -ErrorAction SilentlyContinue
+          
+          Write-Host "Cleanup complete."
